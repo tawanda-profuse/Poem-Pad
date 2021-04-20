@@ -1,17 +1,22 @@
+// Testing
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+// Testing
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-// const { render } = require('ejs');
+const { render } = require('ejs');
 const poemRoutes = require('./routes/poemRoutes');
 
 // express app
 const app = express();
 
 //connect to mongoDB
-const dbURI = 'mongodb://profusetawanda:<password>@poem-pad-shard-00-00.tngyj.mongodb.net:27017,poem-pad-shard-00-01.tngyj.mongodb.net:27017,poem-pad-shard-00-02.tngyj.mongodb.net:27017/poem-pad?ssl=true&replicaSet=atlas-x690cf-shard-0&authSource=admin&retryWrites=true&w=majority';
+// const dbURI = 'mongodb://profusetawanda:H50Eb0PJuuzAcCbo@poem-pad-shard-00-00.tngyj.mongodb.net:27017,poem-pad-shard-00-01.tngyj.mongodb.net:27017,poem-pad-shard-00-02.tngyj.mongodb.net:27017/poem-pad?ssl=true&replicaSet=atlas-x690cf-shard-0&authSource=admin&retryWrites=true&w=majority';
 
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
-.then(result => app.listen(3000))
+mongoose.connect(process.env.dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then(result => app.listen(process.env.PORT || 3000))
 .catch(err => console.log(err));
 
 // register view engine
