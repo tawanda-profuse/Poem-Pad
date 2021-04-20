@@ -20,9 +20,10 @@
         text-decoration: none;
         color:darkorange;
       }
-      .details p{
+      .details pre{
         color: white;
         margin: 50;
+        font-size: 20px;
       }
       .about p{
         color: white;
