@@ -10,6 +10,7 @@ A web app for people with poetic talent, allows the user to write poems and have
 <ol>
   <li><b>npm install</b></li>
   <li><b>npm init</b></li>
-  <li><b>node app</b></li>
+  <li><b>cd "/server" -> `npm run devStart`</b></li>
+  <li><b>Another terminal cd "/client" -> `npm run start`</b></li>
   <li>Lastly, open your browser at the port specified in app.js (should be port 3000)</li>
 </ol>

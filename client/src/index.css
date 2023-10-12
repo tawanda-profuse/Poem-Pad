@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 70%;
+  margin: 20px auto;
+  padding: 0 20px;
+  font-family: 'Noto Serif', serif;
+  background-color: firebrick;
+  overflow-x: hidden;
+}
+
+p,
+h1,
+h2,
+h3,
+a,
+ul {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: darkorange;
+}
+
+.details pre {
+  color: white;
+  margin: 50;
+  font-size: 20px;
+}
+
+.about p {
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-size: 20px;
+}
+.about ol{
+  color: white;
+  padding-left: 5%;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* nav & footer styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  transition: 0.3s ease all;
+}
+
+nav li {
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+nav a:hover {
+  color: darkorange;
+}
+
+nav h1 {
+  font-size: 3em;
+}
+
+nav p,
+nav a {
+  color: white;
+  font-weight: 300;
+}
+.site-title p{
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  animation: changeColor 3s infinite ease forwards;
+}
+.menu-toggle{
+  padding: 10px;
+  font-size: 24px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: yellow;
+  cursor: pointer;
+  display: none;
+}
+
+@keyframes changeColor {
+  0%{
+    color: white;
+  }
+  20%{
+    color: yellow;
+  }
+  50%{
+    color: orange;
+    scale: 1.1;
+  }
+  75%{
+    color: lime;
+  }
+  100%{
+    color: aqua;
+  }
+}
+
+footer {
+  color: darkorange;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+
+h3 {
+  text-transform: capitalize;
+  margin-bottom: 8px;
+}
+
+span {
+  margin-bottom: 0px;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: normal;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.content {
+  margin-left: 20px;
+  min-height: 70%;
+  padding-bottom: 100px;
+}
+.loading{
+  font-size: 30px;
+  color: yellow;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* index styles */
+.blogs a {
+  display: block;
+  margin: 40px 0;
+  border-left: 6px solid darkorange;
+  transition: all 0.1s ease;
+  padding-left: 10px;
+}
+
+.blogs h3 {
+  transition: all 0.1s ease;
+}
+
+.blogs a:hover h3 {
+  color: yellow;
+  translate: 1% 0;
+}
+
+.blogs a:hover {
+  border-left: 6px solid yellow;
+}
+
+.blogs h1 {
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+/* details styles */
+.details {
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  padding: 8px;
+  background-color: darkorange;
+  border: none;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 1);
+}
+
+.delete img {
+  width: 30px;
+}
+
+.delete:hover {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+/* create styles */
+.create-blog form {
+  max-width: 70%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.create-blog input,
+.create-blog textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.create-blog textarea {
+  font-style: italic;
+}
+
+.create-blog label {
+  margin-top: 24px;
+  font-size: 24px;
+  color: white;
+  align-self: flex-start;
+}
+
+textarea {
+  height: 120px;
+}
+
+.create-blog button {
+  background: white;
+  color: black;
+  padding: 6px 30px;
+  border: 0;
+  font-size: 1.9em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 100%;
+  margin: 20px auto;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.create-blog button:hover {
+  background: darkorange;
+  color: white;
+}
+
+/* Media queries: */
+@media screen and (max-width: 1072px) {
+  body {
+    max-width: 90%;
+  }
+  .create-blog form {
+    max-width: 90%;
+  }
+  .menu-toggle{
+    display: inline-flex;
+  }
+  nav {
+    position: relative;
+  }
+  nav ul{
+    background-color: royalblue;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    translate: -50% 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0;
+    font-size: 30px;
+  }
+}
