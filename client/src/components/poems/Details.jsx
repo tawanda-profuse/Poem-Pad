@@ -3,7 +3,7 @@ import useFetch from "../../useFetch";
 
 const Details = () => {
   const { id } = useParams();
-  const url = window.location.origin.includes('localhost') ? "http://localhost:5000/poems" : `${window.location.origin}/poems`;
+  const url = window.location.origin.includes('localhost') ? "http://localhost:5000/poems" : "https://poem-pad.onrender.com/poems";
   const [data, error, isPending] = useFetch(`${url}/${id}`);
   const history = useHistory();
 
