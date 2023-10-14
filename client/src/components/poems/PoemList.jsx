@@ -10,6 +10,7 @@ const PoemList = ({ poems }) => {
             <span> ~ {poem.username}</span>
           </h3>
           <p className="snippet">{poem.snippet}</p>
+          <span>{poem.likes} <i className="fas fa-heart"></i></span>
         </Link>
       ))}
     </>

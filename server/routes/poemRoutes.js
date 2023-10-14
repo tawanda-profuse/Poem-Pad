@@ -6,6 +6,7 @@ router.get('/create', poemController.poem_create_get);
 router.get('/', poemController.poem_index);  
 router.post('/', poemController.poem_create_post);
 router.get('/:id', poemController.poem_details);
+router.put('/:id', poemController.poem_update);
 router.delete('/:id', poemController.poem_delete);
 
 module.exports = router; 

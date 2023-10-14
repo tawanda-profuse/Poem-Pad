@@ -11,7 +11,6 @@ body {
   padding: 0 20px;
   font-family: 'Noto Serif', serif;
   background-color: firebrick;
-  overflow-x: hidden;
 }
 
 p,
@@ -28,8 +27,9 @@ ul {
 
 .details pre {
   color: white;
-  margin: 50;
+  /* margin: 50; */
   font-size: 20px;
+  max-width: 70%;
 }
 
 .about p {
@@ -38,7 +38,8 @@ ul {
   line-height: 1.2;
   font-size: 20px;
 }
-.about ol{
+
+.about ol {
   color: white;
   padding-left: 5%;
   font-size: 20px;
@@ -80,14 +81,16 @@ nav a {
   color: white;
   font-weight: 300;
 }
-.site-title p{
+
+.site-title p {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
   font-weight: bold;
   animation: changeColor 3s infinite ease forwards;
 }
-.menu-toggle{
+
+.menu-toggle {
   padding: 10px;
   font-size: 24px;
   outline: none;
@@ -99,20 +102,24 @@ nav a {
 }
 
 @keyframes changeColor {
-  0%{
+  0% {
     color: white;
   }
-  20%{
+
+  20% {
     color: yellow;
   }
-  50%{
+
+  50% {
     color: orange;
     scale: 1.1;
   }
-  75%{
+
+  75% {
     color: lime;
   }
-  100%{
+
+  100% {
     color: aqua;
   }
 }
@@ -147,7 +154,8 @@ span {
   min-height: 70%;
   padding-bottom: 100px;
 }
-.loading{
+
+.loading {
   font-size: 30px;
   color: yellow;
   font-weight: bold;
@@ -186,24 +194,103 @@ span {
   position: relative;
 }
 
-.delete {
+.interactions {
   position: absolute;
   top: 0;
   right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+  gap: 1rem;
+}
+
+.delete {
+  font-size: 2.5rem;
   border-radius: 50%;
-  padding: 8px;
+  flex-basis: 40%;
+  padding: 5% 0;
   background-color: darkorange;
   border: none;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 1);
+  position: relative;
 }
 
-.delete img {
-  width: 30px;
+@keyframes destroy {
+  from {
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 1);
+  }
+
+  to {
+    transform: scaleY(60%);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+  }
+}
+
+.like {
+  font-size: 2.5rem;
+  border-radius: 50%;
+  flex-basis: 40%;
+  padding: 5% 0;
+  background-color: yellow;
+  border: none;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 1);
+  position: relative;
+}
+
+@keyframes hooray {
+  from {
+    transform: rotateZ(0deg) skewX(0deg);
+  }
+
+  to {
+    transform: rotateZ(340deg) skewX(20deg);
+  }
 }
 
 .delete:hover {
+  cursor: pointer;
+}
+
+.like:hover {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
   cursor: pointer;
+}
+
+/* tooltips: */
+.tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 1rem;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.like:hover .tooltiptext,
+.delete:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 
 /* create styles */
@@ -264,17 +351,34 @@ textarea {
   body {
     max-width: 90%;
   }
+  
   .create-blog form {
     max-width: 90%;
   }
-  .menu-toggle{
+  .details {
+    position: static;
+  }
+
+  .menu-toggle {
     display: inline-flex;
   }
+
+  .interactions {
+    top: 2%;
+    right: 15%;
+  }
+
+  .delete, .like{
+    padding: 10px;
+  font-size: 24px;
+  }
+
   nav {
     position: relative;
   }
-  nav ul{
-    background-color: royalblue;
+
+  nav ul {
+    background-color: firebrick;
     flex-direction: column;
     align-items: center;
     left: 50%;
@@ -285,5 +389,14 @@ textarea {
     gap: 10px;
     padding: 10px 0;
     font-size: 30px;
+    z-index: 3;
+  }
+
+  nav ul li {
+    border-bottom: 1px solid white;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.8% 0;
   }
 }

@@ -19,12 +19,12 @@ const poem_details = (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.json(err)
+      res.json(err);
     });
 };
 
 const poem_create_get = (req, res) => {
-  res.json({title: "Write a new poem"});
+  res.json({ title: "Write a new poem" });
 };
 
 const poem_create_post = (req, res) => {
@@ -39,6 +39,21 @@ const poem_create_post = (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+};
+
+const poem_update = (req, res) => {
+  const id = req.params.id;
+  const { likes } = req.body;
+  // Find and update the item in the database by id
+  Poem.findByIdAndUpdate(id, { likes }, { new: true }, (err, item) => {
+    if (err) {
+      // Send an error response if something goes wrong
+      res.status(500).json({ message: err.message });
+    } else {
+      // Send a success response with the updated item data
+      res.status(200).json(item);
+    }
+  });
 };
 
 const poem_delete = (req, res) => {
@@ -59,4 +74,5 @@ module.exports = {
   poem_create_get,
   poem_create_post,
   poem_delete,
+  poem_update,
 };
