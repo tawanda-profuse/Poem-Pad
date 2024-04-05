@@ -1,6 +1,6 @@
 import { useParams, useHistory } from "react-router-dom";
 import useFetch from "../../useFetch";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Details = () => {
   const { id } = useParams();
@@ -10,13 +10,10 @@ const Details = () => {
   const [data, error, isPending] = useFetch(`${url}/${id}`);
   const history = useHistory();
   const [clicked, setClicked] = useState(localStorage.getItem(`liked-${id}`));
-  const [heartStatus, setHeartStatus] = useState(
-    localStorage.getItem(`liked-${id}`)
-  );
   let counter = data.likes;
   const [likes, setLikes] = useState(counter);
 
-  const deletePoem = async (e, poemId) => {
+  const deletePoem = async () => {
     fetch(`${url}/${id}`, {
       method: "DELETE",
     }).then(() => {
@@ -44,7 +41,7 @@ const Details = () => {
         body: JSON.stringify({ likes: counter + 1 }),
       }).then((res) => {
         if (res.ok) {
-          console.log("Likes updated successfully");
+          console.log("Likes updated successfully", likes);
         } else {
           console.error("Something went wrong");
         }
