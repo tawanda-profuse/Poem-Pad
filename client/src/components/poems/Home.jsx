@@ -4,7 +4,6 @@ import useFetch from "../../useFetch";
 const Home = () => {
   const url = window.location.origin.includes('localhost') ? "http://localhost:5000/poems" : "https://poem-pad-server.onrender.com/poems";
   const [data, isPending, error] = useFetch(url);
-  console.log(url);
 
   return (
       <div className="blogs content">
