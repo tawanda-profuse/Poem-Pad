@@ -6,7 +6,7 @@ const Details = () => {
   const { id } = useParams();
   const url = window.location.origin.includes("localhost")
     ? "http://localhost:5000/poems"
-    : "https://poem-pad-server.onrender.com/poems";
+    : "https://poem-pad.vercel.app/poems";
   const [data, error, isPending] = useFetch(`${url}/${id}`);
   const history = useHistory();
   const [clicked, setClicked] = useState(localStorage.getItem(`liked-${id}`));
@@ -59,7 +59,7 @@ const Details = () => {
             <h1>
               {data.title} ~ <span>{data.username}</span>
             </h1>
-            <div className="content">
+            <div className="">
               <pre>{data.body}</pre>
             </div>
             <div className="interactions">
@@ -72,7 +72,7 @@ const Details = () => {
                   updateLikes();
                   e.target.style.animation = clicked
                     ? ""
-                    : "hooray 1s linear 0s 1";
+                    : "hooray 0.5s ease-in-out 0s 1";
                 }}
               >
                 <span className="tooltiptext">

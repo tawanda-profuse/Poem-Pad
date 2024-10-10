@@ -9,7 +9,7 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [snippet, setSnippet] = useState("");
   const [body, setBody] = useState("");
-  const url = window.location.origin.includes('localhost') ? "http://localhost:5000/poems" : "https://poem-pad-server.onrender.com/poems";
+  const url = window.location.origin.includes('localhost') ? "http://localhost:5000/poems" : "https://poem-pad.vercel.app/poems";
 
   const handleAddPoem = async (event) => {
     event.preventDefault();

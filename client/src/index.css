@@ -27,9 +27,8 @@ ul {
 
 .details pre {
   color: white;
-  /* margin: 50; */
   font-size: 20px;
-  max-width: 70%;
+  text-wrap: wrap;
 }
 
 .about p {
@@ -150,9 +149,7 @@ span {
 }
 
 .content {
-  margin-left: 20px;
   min-height: 70%;
-  padding-bottom: 100px;
 }
 
 .loading {
@@ -240,11 +237,11 @@ span {
 
 @keyframes hooray {
   from {
-    transform: rotateZ(0deg) skewX(0deg);
+    scale: 1;
   }
-
+  
   to {
-    transform: rotateZ(340deg) skewX(20deg);
+    scale: 1.5;
   }
 }
 
