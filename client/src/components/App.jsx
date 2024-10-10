@@ -4,7 +4,6 @@ import Footer from "./partials/Footer";
 import Home from "./poems/Home";
 import About from "./About";
 import Create from "./poems/Create";
-import NotFound from "./404";
 import Details from "./poems/Details";
 
 const App = () => {
@@ -26,9 +25,6 @@ const App = () => {
         </Route>
         <Route exact path="/create">
           <Create />
-        </Route>
-        <Route path="*">
-          <NotFound />
         </Route>
       </Switch>
       <Footer />
