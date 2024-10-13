@@ -126,8 +126,10 @@ nav a {
 footer {
   color: darkorange;
   text-align: center;
-  position: relative;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  background-color: black;
   width: 100%;
 }
 
@@ -184,6 +186,34 @@ span {
 .blogs h1 {
   margin-bottom: 20px;
   text-decoration: underline;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  gap: 1rem;
+
+  span{
+    color: white
+  }
+
+  button {
+    outline: none;
+    border: none;
+    background-color: white;
+    color: black;
+    padding: 0.5rem 1rem;
+
+    &:hover{
+      background-color: darkorange;
+    }
+    
+    &:not(:disabled){
+      cursor: pointer;
+    }
+  }
 }
 
 /* details styles */

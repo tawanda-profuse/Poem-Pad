@@ -1,14 +1,30 @@
 const Poem = require("../models/poem");
 
-const poem_index = (req, res) => {
-  Poem.find()
-    .sort({ createdAt: -1 })
-    .then((result) => {
-      res.json(result);
-    })
-    .catch((err) => {
-      console.log(err);
+const poem_index = async (req, res) => {
+  let page = parseInt(req.query.page) || 1;
+  let limit = parseInt(req.query.limit) || 5;
+  let query = Poem.find().sort({ createdAt: -1 });
+
+  // Pagination
+  const totalPoems = await Poem.countDocuments(query);
+  const poems = await query
+    .select("title username snippet likes")
+    .skip((page - 1) * limit)
+    .limit(limit)
+    .exec();
+
+  try {
+    res.status(200).send({
+      poems: poems,
+      currentPage: page,
+      totalPages: Math.ceil(totalPoems / limit),
     });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      message: `Error: ${error}`,
+    });
+  }
 };
 
 const poem_details = (req, res) => {

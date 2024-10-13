@@ -1,4 +1,4 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../../useFetch";
 import { useState } from "react";
 
@@ -8,7 +8,7 @@ const Details = () => {
     ? "http://localhost:5000/poems"
     : "https://poem-pad.vercel.app/poems";
   const [data, error, isPending] = useFetch(`${url}/${id}`);
-  const history = useHistory();
+  const navigate = useNavigate();
   const [clicked, setClicked] = useState(localStorage.getItem(`liked-${id}`));
   let counter = data.likes;
   const [likes, setLikes] = useState(counter);
@@ -18,7 +18,7 @@ const Details = () => {
       method: "DELETE",
     }).then(() => {
       setTimeout(() => {
-        history.push("/poems");
+        navigate("/poems");
       }, 1000);
     });
   };

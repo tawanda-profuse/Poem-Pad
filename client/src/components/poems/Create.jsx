@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [poems, setPoems] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [title, setTitle] = useState("");
@@ -35,7 +35,7 @@ const Create = () => {
       setUsername("");
       setSnippet("");
       setBody("");
-      history.push("/poems");
+      navigate("/poems");
     } catch (error) {
       console.log(error);
     }
